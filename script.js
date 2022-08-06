@@ -1,5 +1,5 @@
 //create array that holds rps choices
-var options = ["Rock", "Paper", "Scissors"]
+var options = ["rock", "paper", "scissors"]
 
 //create empty variable to store computer choice
 var computerChoice
@@ -10,3 +10,6 @@ function getComputerChoice(){
     computerChoice = options[Math.floor(Math.random() * options.length)]
     return(computerChoice)
 }
+
+//ask user to input their choice then convert to lower case
+var playerChoice = prompt("Rock, Paper, or Scissors?").toLowerCase()
