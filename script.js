@@ -1,6 +1,3 @@
-//create array that holds rps choices
-var options = ["rock", "paper", "scissors"]
-
 //create empty variable to store computer choice
 var computerChoice
 
@@ -22,13 +19,19 @@ function getPlayerChoice(){
 
 //write function to play round
 function playRound(playerChoice, computerChoice){
-    computerChoice = getComputerChoice();
-    playerChoice = getPlayerChoice();
+    //register computerChoice and playerChoice and convert them to lowercase
+    computerChoice = getComputerChoice().toLowerCase();
+    playerChoice = getPlayerChoice().toLowerCase();
     //create logic gate with winning outcomes
     if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
-        return "You win";
+        return `You win, ${playerChoice} beats ${computerChoice}`;
     }
+    //create logic gate for ties
+    else if (playerChoice === computerChoice){
+        return `It's a tie! ${playerChoice} vs ${computerChoice}`;
+    }
+    //create logic gate for losing outcomes
     else{
-        return "No win";
+        return `No win, ${playerChoice} loses to ${computerChoice}`;
     }
 }
