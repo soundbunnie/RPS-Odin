@@ -1,3 +1,7 @@
+//create array with RPS options
+
+var options = ["rock", "paper", "scissors"]
+
 //create empty variable to store computer choice
 var computerChoice
 
@@ -26,12 +30,15 @@ function playRound(playerChoice, computerChoice){
     if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
         return `You win, ${playerChoice} beats ${computerChoice}`;
     }
+    //create logic gate for losing outcomes
+    else if (playerChoice === "paper" && computerChoice === "scissors" || playerChoice === "rock" && computerChoice === "paper" || playerChoice === "scissors" && computerChoice === "rock"){
+        return `No win, ${playerChoice} loses to ${computerChoice}`;
+    }
     //create logic gate for ties
     else if (playerChoice === computerChoice){
         return `It's a tie! ${playerChoice} vs ${computerChoice}`;
     }
-    //create logic gate for losing outcomes
     else{
-        return `No win, ${playerChoice} loses to ${computerChoice}`;
+        return `Unrecognized option. Please try again.`
     }
 }
