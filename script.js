@@ -53,7 +53,7 @@ function playRound(playerChoice, computerChoice){
         roundResultDisplay.textContent = `You win! \n ${playerScore} - ${computerScore}`
         playerScore = 0;
         computerScore = 0;
-        roundLogDisplay.textContent = "";
+        roundLogDisplay.textContent = "Round Log \r\n";
         return;
     }
     //create logic gate with winning outcomes
@@ -78,7 +78,7 @@ function playRound(playerChoice, computerChoice){
         roundResultDisplay.textContent = "tie";
     }
     scoreboardDisplay.textContent = `${playerScore} - ${computerScore}`;
-    roundLogDisplay.textContent += `${roundResult}: ${playerChoice} vs ${computerChoice}, ${playerScore} - ${computerScore} \r\n`;
+    roundLogDisplay.textContent += ` Score: ${playerScore} - ${computerScore} \r\n ${roundResult}: ${playerChoice} vs ${computerChoice} \r\n`;
 
     
 }
