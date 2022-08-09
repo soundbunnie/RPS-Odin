@@ -8,12 +8,15 @@ var playerScore = 0
 var computerScore = 0
 
 var choiceButtons = document.querySelectorAll('button'); //assign all buttons to variable
+var playerChoiceDisplay = document.getElementById('player-choice');
+
 choiceButtons.forEach((button) => { //add event listener for each buttons
     button.addEventListener('click', () => {
         playerChoice = button.id;
-        console.log(playerChoice);
+        playerChoiceDisplay.textContent = button.id;
         playRound(playerChoice);
         disableSelections();
+        enableSelections();
     });
 }); 
 
@@ -55,7 +58,5 @@ function playRound(playerChoice, computerChoice){
         roundResult = "loss"
         console.log(`It's a tie! ${playerChoice} vs ${computerChoice}`);
     }
-    else{
-        console.log(`ERROR${playerChoice} ${computerChoice}`);
-    }
 }
+
