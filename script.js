@@ -47,8 +47,13 @@ function playRound(playerChoice, computerChoice){
     computerChoiceDisplay.style.color = "black";
     computerChoice = getComputerChoice(); //register computerChoice and playerChoice and convert them to lowercase
     computerChoiceDisplay.textContent = computerChoice;
+    if (playerScore === 5){
+        roundResultDisplay.textContent = `You win! \n ${playerScore} - ${computerScore}`
+        playerScore = 0;
+        computerScore = 0;
+    }
     //create logic gate with winning outcomes
-    if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
+    else if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
         playerChoiceDisplay.style.color = "#77DD77";
         computerChoiceDisplay.style.color = "#FF6961";
         roundResultDisplay.textContent = "win";
