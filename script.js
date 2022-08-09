@@ -22,6 +22,12 @@ function disableSelections(){
     })
 }
 
+function enableSelections(){
+    choiceButtons.forEach((button) =>{
+        button.disabled = false;
+    })
+}
+
 //create function that randomly chooses from options
 function getComputerChoice(){
     //create random number within range of options.length, create variable referring to item index of the result
