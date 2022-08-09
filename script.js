@@ -53,6 +53,8 @@ function playRound(playerChoice, computerChoice){
         roundResultDisplay.textContent = `You win! \n ${playerScore} - ${computerScore}`
         playerScore = 0;
         computerScore = 0;
+        roundLogDisplay.textContent = "";
+        return;
     }
     //create logic gate with winning outcomes
     else if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
