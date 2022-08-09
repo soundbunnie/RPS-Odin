@@ -10,6 +10,7 @@ var computerScore = 0
 var choiceButtons = document.querySelectorAll('button'); //assign all buttons to variable
 var playerChoiceDisplay = document.getElementById('player-choice');
 var computerChoiceDisplay = document.getElementById('computer-choice');
+var roundResultDisplay = document.getElementById('round-result');
 
 choiceButtons.forEach((button) => { //add event listener for each buttons
     button.addEventListener('click', () => {
@@ -48,17 +49,16 @@ function playRound(playerChoice, computerChoice){
     //create logic gate with winning outcomes
     if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
         roundResult = "win"
-        console.log(`You win, ${playerChoice} beats ${computerChoice}`);
+        roundResultDisplay.textContent = "win";
     }
     //create logic gate for losing outcomes
     else if (playerChoice === "paper" && computerChoice === "scissors" || playerChoice === "rock" && computerChoice === "paper" || playerChoice === "scissors" && computerChoice === "rock"){
-        roundResult = "tie"
-        console.log(`No win, ${playerChoice} loses to ${computerChoice}`);
+        roundResult = "loss"
+        roundResultDisplay.textContent = "loss";
     }
     //create logic gate for ties
     else if (playerChoice === computerChoice){
-        roundResult = "loss"
-        console.log(`It's a tie! ${playerChoice} vs ${computerChoice}`);
+        roundResult = "tie"
+        roundResultDisplay.textContent = "tie";
     }
 }
-
