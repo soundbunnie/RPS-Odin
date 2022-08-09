@@ -44,16 +44,22 @@ function enableSelections(){
 
 //write function to play round
 function playRound(playerChoice, computerChoice){
+    playerChoiceDisplay.style.color = "black";
+    computerChoiceDisplay.style.color = "black";
     computerChoice = getComputerChoice(); //register computerChoice and playerChoice and convert them to lowercase
     computerChoiceDisplay.textContent = computerChoice;
     //create logic gate with winning outcomes
     if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
         roundResult = "win"
+        playerChoiceDisplay.style.color = "#77DD77";
+        computerChoiceDisplay.style.color = "#FF6961";
         roundResultDisplay.textContent = "win";
     }
     //create logic gate for losing outcomes
     else if (playerChoice === "paper" && computerChoice === "scissors" || playerChoice === "rock" && computerChoice === "paper" || playerChoice === "scissors" && computerChoice === "rock"){
         roundResult = "loss"
+        playerChoiceDisplay.style.color = "#FF6961";
+        computerChoiceDisplay.style.color = "#77DD77"
         roundResultDisplay.textContent = "loss";
     }
     //create logic gate for ties
