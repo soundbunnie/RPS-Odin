@@ -1,16 +1,18 @@
-var options = ["rock", "paper", "scissors"]
+var options = ["rock", "paper", "scissors"];
 
 //create empty variables to use later
-var computerChoice
-var playerChoice
-var playerScore = 0
-var computerScore = 0
+var computerChoice;
+var playerChoice;
+var playerScore = 0;
+var computerScore = 0;
+var roundResult;
 
 var choiceButtons = document.querySelectorAll('button'); //assign all buttons to variable
 var playerChoiceDisplay = document.getElementById('player-choice');
 var computerChoiceDisplay = document.getElementById('computer-choice');
 var roundResultDisplay = document.getElementById('round-result');
 var scoreboardDisplay = document.getElementById('scoreboard');
+var roundLogDisplay = document.getElementById('round-log');
 
 choiceButtons.forEach((button) => { //add event listener for each buttons
     button.addEventListener('click', () => {
@@ -56,6 +58,7 @@ function playRound(playerChoice, computerChoice){
     else if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
         playerChoiceDisplay.style.color = "#77DD77";
         computerChoiceDisplay.style.color = "#FF6961";
+        roundResult = "Win";
         roundResultDisplay.textContent = "win";
         playerScore ++;
     }
@@ -63,13 +66,17 @@ function playRound(playerChoice, computerChoice){
     else if (playerChoice === "paper" && computerChoice === "scissors" || playerChoice === "rock" && computerChoice === "paper" || playerChoice === "scissors" && computerChoice === "rock"){
         playerChoiceDisplay.style.color = "#FF6961";
         computerChoiceDisplay.style.color = "#77DD77"
+        roundResult = "Loss";
         roundResultDisplay.textContent = "loss";
         computerScore ++;
     }
     //create logic gate for ties
     else if (playerChoice === computerChoice){
+        roundResult = "Tie";
         roundResultDisplay.textContent = "tie";
     }
-    scoreboardDisplay.textContent = `${playerScore} - ${computerScore}` 
+    scoreboardDisplay.textContent = `${playerScore} - ${computerScore}`;
+    roundLogDisplay.textContent += `${roundResult}: ${playerChoice} vs ${computerChoice}, ${playerScore} - ${computerScore} \r\n`;
+
     
 }

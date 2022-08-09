@@ -24,9 +24,15 @@
 
 #round-log{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: pre;
+    gap: 24px;
+    font-size: 22px;
     width: 100%;
+    max-height: 200px;
+    overflow-x: auto;
     margin-right: 100px;
-    justify-content: flex-end;
 }
 
 .choices{
