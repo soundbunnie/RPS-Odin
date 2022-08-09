@@ -54,38 +54,3 @@ function playRound(playerChoice, computerChoice){
         playRound()
     }
 }
-
-//write function to play 5 round game
-function game(){
-    //create loop that goes for 5 rounds
-    for (let i = 0; i < 5; i++){
-        playRound()
-        //add to playerScore if win
-        if (roundResult === "win"){
-            playerScore ++;
-            console.log(`Score: ${playerScore} - ${computerScore}`)
-        }
-        //add to computerScore if lose
-        else if (roundResult === "loss"){
-            computerScore ++;
-            console.log(`Score: ${playerScore} - ${computerScore}`)
-        }
-        //remove 1 from i if tie
-        else if (roundResult === "tie"){
-            i--;
-            console.log(`Score: ${playerScore} - ${computerScore}`)
-        }
-    }
-    //tell the player they won if their score is higher than the computers
-    if (playerScore > computerScore){
-        return(`Winner! You beat the computer ${playerScore} to ${computerScore}`)
-    }
-    //tell the player they lost if their score is lower than the computers
-    else if (computerScore > playerScore){
-        return(`You lost to the computer ${playerScore} to ${computerScore}`)
-    }
-    //tell the player they tied if their score is equal to the computers
-    else if (playerScore === computerScore){
-        return(`It's a tie! ${playerScore} to ${computerScore}`)
-    }
-}
