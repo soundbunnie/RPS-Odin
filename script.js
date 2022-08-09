@@ -1,20 +1,19 @@
-//create array with RPS options
-
 var options = ["rock", "paper", "scissors"]
 
-//create empty variables to store computer and player choice
+//create empty variables to use later
 var computerChoice
-
 var playerChoice
-
-//create empty variable to store round result
 var roundResult
-
-//create empty variable to store score in
-
 var playerScore = 0
 var computerScore = 0
 
+var choiceButtons = document.querySelectorAll('button');
+choiceButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playerChoice = button.id;
+        console.log(playerChoice);
+    });
+}); 
 
 //create function that randomly chooses from options
 function getComputerChoice(){
@@ -24,15 +23,14 @@ function getComputerChoice(){
 }
 
 //ask user to input their choice then convert to lower case
-function getPlayerChoice(){
-    playerChoice = prompt("Rock, Paper, or Scissors?");
-    return(playerChoice)
-}
+//function getPlayerChoice(){
+//    playerChoice = prompt("Rock, Paper, or Scissors?");
+//    return(playerChoice)
+//}
 
 //write function to play round
 function playRound(playerChoice, computerChoice){
-    //register computerChoice and playerChoice and convert them to lowercase
-    computerChoice = getComputerChoice().toLowerCase();
+    computerChoice = getComputerChoice().toLowerCase(); //register computerChoice and playerChoice and convert them to lowercase
     playerChoice = getPlayerChoice().toLowerCase();
     //create logic gate with winning outcomes
     if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
@@ -49,7 +47,6 @@ function playRound(playerChoice, computerChoice){
         roundResult = "loss"
         console.log(`It's a tie! ${playerChoice} vs ${computerChoice}`);
     }
-    //restart function if user inputs unrecognized option
     else{
         playRound()
     }

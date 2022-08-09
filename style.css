@@ -1,6 +1,6 @@
 .container{
     display:flex;
-    justify-content: space-around;
+    justify-content: space-around;  
     flex-wrap: wrap;
     row-gap: 100px;
 }
@@ -14,26 +14,30 @@
 }
 
 .title-card{
-    font-size: 32px;
+    font-size: 50px;
     font-weight: bold;
+}
+
+.scoreboard{
+    font-size: 30px;
 }
 
 .choices{
     display: flex;
     width: 100%;
     justify-content:space-evenly;
+    font-size: 40px;
     margin-top: 100px;
 }
 
-.select-buttons ul{
+.select-buttons{
     display: flex;
-    justify-content: center;
-    margin-top: 200px;
+    margin-top: 150px;
     gap: 52px;
     list-style: none;
 }
 
-.select-buttons li button{
+.select-buttons button{
     text-align: center;
     width: 15em;
     height: 5em;
