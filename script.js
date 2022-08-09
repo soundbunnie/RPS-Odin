@@ -9,6 +9,7 @@ var computerScore = 0
 
 var choiceButtons = document.querySelectorAll('button'); //assign all buttons to variable
 var playerChoiceDisplay = document.getElementById('player-choice');
+var computerChoiceDisplay = document.getElementById('computer-choice');
 
 choiceButtons.forEach((button) => { //add event listener for each buttons
     button.addEventListener('click', () => {
@@ -43,6 +44,7 @@ function enableSelections(){
 //write function to play round
 function playRound(playerChoice, computerChoice){
     computerChoice = getComputerChoice(); //register computerChoice and playerChoice and convert them to lowercase
+    computerChoiceDisplay.textContent = computerChoice;
     //create logic gate with winning outcomes
     if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
         roundResult = "win"
