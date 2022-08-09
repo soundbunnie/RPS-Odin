@@ -3,7 +3,6 @@ var options = ["rock", "paper", "scissors"]
 //create empty variables to use later
 var computerChoice
 var playerChoice
-var roundResult
 var playerScore = 0
 var computerScore = 0
 
@@ -11,6 +10,7 @@ var choiceButtons = document.querySelectorAll('button'); //assign all buttons to
 var playerChoiceDisplay = document.getElementById('player-choice');
 var computerChoiceDisplay = document.getElementById('computer-choice');
 var roundResultDisplay = document.getElementById('round-result');
+var scoreboardDisplay = document.getElementById('scoreboard');
 
 choiceButtons.forEach((button) => { //add event listener for each buttons
     button.addEventListener('click', () => {
@@ -41,7 +41,6 @@ function enableSelections(){
     })
 }
 
-
 //write function to play round
 function playRound(playerChoice, computerChoice){
     playerChoiceDisplay.style.color = "black";
@@ -50,21 +49,22 @@ function playRound(playerChoice, computerChoice){
     computerChoiceDisplay.textContent = computerChoice;
     //create logic gate with winning outcomes
     if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
-        roundResult = "win"
         playerChoiceDisplay.style.color = "#77DD77";
         computerChoiceDisplay.style.color = "#FF6961";
         roundResultDisplay.textContent = "win";
+        playerScore ++;
     }
     //create logic gate for losing outcomes
     else if (playerChoice === "paper" && computerChoice === "scissors" || playerChoice === "rock" && computerChoice === "paper" || playerChoice === "scissors" && computerChoice === "rock"){
-        roundResult = "loss"
         playerChoiceDisplay.style.color = "#FF6961";
         computerChoiceDisplay.style.color = "#77DD77"
         roundResultDisplay.textContent = "loss";
+        computerScore ++;
     }
     //create logic gate for ties
     else if (playerChoice === computerChoice){
-        roundResult = "tie"
         roundResultDisplay.textContent = "tie";
     }
+    scoreboardDisplay.textContent = `${playerScore} - ${computerScore}` 
+    
 }
