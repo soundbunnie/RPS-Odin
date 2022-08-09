@@ -22,6 +22,13 @@
     font-size: 30px;
 }
 
+#round-log{
+    display: flex;
+    width: 100%;
+    margin-right: 100px;
+    justify-content: flex-end;
+}
+
 .choices{
     display: flex;
     width: 100%;
@@ -32,7 +39,6 @@
 
 .select-buttons{
     display: flex;
-    margin-top: 150px;
     gap: 52px;
     list-style: none;
 }
