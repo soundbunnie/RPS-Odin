@@ -11,9 +11,16 @@ var choiceButtons = document.querySelectorAll('button');
 choiceButtons.forEach((button) => {
     button.addEventListener('click', () => {
         playerChoice = button.id;
+        disableSelections();
         console.log(playerChoice);
     });
 }); 
+
+function disableSelections(){
+    choiceButtons.forEach((button) =>{
+        button.disabled = true;
+    })
+}
 
 //create function that randomly chooses from options
 function getComputerChoice(){
@@ -21,12 +28,6 @@ function getComputerChoice(){
     computerChoice = options[Math.floor(Math.random() * options.length)]
     return(computerChoice)
 }
-
-//ask user to input their choice then convert to lower case
-//function getPlayerChoice(){
-//    playerChoice = prompt("Rock, Paper, or Scissors?");
-//    return(playerChoice)
-//}
 
 //write function to play round
 function playRound(playerChoice, computerChoice){
