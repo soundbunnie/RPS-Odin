@@ -7,14 +7,22 @@ var roundResult
 var playerScore = 0
 var computerScore = 0
 
-var choiceButtons = document.querySelectorAll('button');
-choiceButtons.forEach((button) => {
+var choiceButtons = document.querySelectorAll('button'); //assign all buttons to variable
+choiceButtons.forEach((button) => { //add event listener for each buttons
     button.addEventListener('click', () => {
         playerChoice = button.id;
-        disableSelections();
         console.log(playerChoice);
+        playRound(playerChoice);
+        disableSelections();
     });
 }); 
+
+//create function that randomly chooses from options
+function getComputerChoice(){
+    //create random number within range of options.length, create variable referring to item index of the result
+    computerChoice = options[Math.floor(Math.random() * options.length)]
+    return computerChoice
+}
 
 function disableSelections(){
     choiceButtons.forEach((button) =>{
@@ -28,17 +36,10 @@ function enableSelections(){
     })
 }
 
-//create function that randomly chooses from options
-function getComputerChoice(){
-    //create random number within range of options.length, create variable referring to item index of the result
-    computerChoice = options[Math.floor(Math.random() * options.length)]
-    return(computerChoice)
-}
 
 //write function to play round
 function playRound(playerChoice, computerChoice){
-    computerChoice = getComputerChoice().toLowerCase(); //register computerChoice and playerChoice and convert them to lowercase
-    playerChoice = getPlayerChoice().toLowerCase();
+    computerChoice = getComputerChoice(); //register computerChoice and playerChoice and convert them to lowercase
     //create logic gate with winning outcomes
     if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "paper"){
         roundResult = "win"
@@ -55,6 +56,6 @@ function playRound(playerChoice, computerChoice){
         console.log(`It's a tie! ${playerChoice} vs ${computerChoice}`);
     }
     else{
-        playRound()
+        console.log(`ERROR${playerChoice} ${computerChoice}`);
     }
 }
